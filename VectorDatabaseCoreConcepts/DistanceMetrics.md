@@ -1,0 +1,70 @@
+# Distance Metrics and Similarity in Vector Databases
+
+Understanding how distances and similarities are measured between vectors is key to leveraging the power of vector databases. Distance metrics are mathematical functions used to determine how similar or dissimilar two data points are in a vector space. These metrics play a crucial role in tasks like search, clustering, and classification.
+
+Think of distance metrics like a map: they help you measure how far one point (or data item) is from another. It's not always about physical distance—it’s about the closeness of meaning, behavior, or other characteristics.
+
+## Euclidean Distance
+
+Euclidean distance, also known as the **L2 norm**, is the most intuitive and commonly used metric. It calculates the straight-line distance between two points in space.
+
+### Formula
+
+If you have two points `P1 = (x₁, y₁)` and `P2 = (x₂, y₂)`, the Euclidean distance `D` is calculated as:
+
+D = √((x₂ - x₁)² + (y₂ - y₁)²)
+This metric is sensitive to the magnitude of vectors. That means large values in vectors can have a big impact on the calculated distance. This is useful in some contexts, but it can also lead to skewed results if vector values vary widely.
+
+## Manhattan Distance
+
+Manhattan distance is also known as the **L1 norm** or **Taxicab geometry**. Unlike Euclidean distance, it sums up the absolute differences between the corresponding components of two vectors.
+
+### Formula
+
+For two points `P1 = (x₁, y₁)` and `P2 = (x₂, y₂)`:
+D = |x₂ - x₁| + |y₂ - y₁|
+
+You can think of this like driving through a city with only horizontal and vertical streets. You can’t take a diagonal shortcut—every movement adds to the total. This metric works well when each feature's difference matters equally and is particularly useful in tasks like image retrieval or analyzing financial spending across different categories.
+
+## Cosine Distance (Cosine Similarity)
+
+Cosine distance measures the **cosine of the angle** between two vectors. It’s not focused on the absolute distance but on how two vectors are oriented relative to each other.
+
+### Formula (Cosine Similarity)
+
+cos(θ) = (A · B) / (‖A‖‖B‖)
+
+- `A · B` is the dot product of vectors A and B
+- `‖A‖` and `‖B‖` are the magnitudes (lengths) of vectors A and B
+
+A higher cosine similarity means the vectors are more aligned (smaller angle between them), indicating stronger similarity. This is ideal for high-dimensional data where patterns and directions matter more than raw values.
+
+## Jaccard Similarity
+
+Jaccard similarity is a different approach used primarily for comparing sets. It measures the **overlap** between two sets and is useful when presence or absence of items is more important than how often they appear.
+
+### Formula
+
+J(A, B) = |A ∩ B| / |A ∪ B|
+
+
+- `|A ∩ B|` is the number of elements common to both sets
+- `|A ∪ B|` is the total number of unique elements across both sets
+
+Jaccard similarity is especially useful for tasks like:
+
+- Comparing customers based on their purchase history
+- Analyzing similarity between two text documents based on shared words
+
+This metric provides a unique view of similarity that focuses purely on commonality rather than magnitude or frequency.
+
+## Summary
+
+Each distance metric serves a different purpose depending on the nature of your data and your use case:
+
+- **Euclidean Distance**: Measures straight-line distance, useful when magnitude matters.
+- **Manhattan Distance**: Measures step-by-step difference, good for grid-like paths or feature independence.
+- **Cosine Similarity**: Measures orientation, best for high-dimensional pattern recognition.
+- **Jaccard Similarity**: Measures set overlap, useful when presence/absence of features is more important than how often they occur.
+
+Understanding these metrics helps in choosing the right one for your specific application and ensures accurate and efficient data analysis in vector databases.
