@@ -13,6 +13,7 @@ Euclidean distance, also known as the **L2 norm**, is the most intuitive and com
 If you have two points `P1 = (x₁, y₁)` and `P2 = (x₂, y₂)`, the Euclidean distance `D` is calculated as:
 
 D = √((x₂ - x₁)² + (y₂ - y₁)²)
+
 This metric is sensitive to the magnitude of vectors. That means large values in vectors can have a big impact on the calculated distance. This is useful in some contexts, but it can also lead to skewed results if vector values vary widely.
 
 ## Manhattan Distance
